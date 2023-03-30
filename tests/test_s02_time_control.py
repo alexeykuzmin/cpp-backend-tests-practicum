@@ -264,12 +264,15 @@ def test_two_players_sequences(docker_server, game_server, map_id):
     random.seed(55463)     # Заглушка, чтобы не ловить баги. Существует, пока не искоренили баги из решения
     for _ in range(0, 10):
         direction_1 = Direction.random_str()
+        print(f"direction_1: {direction_1}")
         move_players(docker_server, game_server, token_1, direction_1)
 
         direction_2 = Direction.random_str()
+        print(f"direction_2: {direction_2}")
         move_players(docker_server, game_server, token_2, direction_2)
 
         ticks = random.randint(0, 10000)
+        print(f"ticks: {ticks}")
         tick_both(docker_server, game_server, ticks)
 
         state_1, py_state_1 = get_states(docker_server, game_server, token_1)
