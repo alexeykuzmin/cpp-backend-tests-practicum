@@ -278,5 +278,9 @@ def test_two_players_sequences(docker_server, game_server, map_id):
         state_1, py_state_1 = get_states(docker_server, game_server, token_1)
         state_2, py_state_2 = get_states(docker_server, game_server, token_2)
 
+        print(state_1, py_state_1)
+        print(state_2, py_state_2)
+        print('\n')
+
         compare_states(state_1, py_state_1)
         compare_states(state_2, py_state_2)
